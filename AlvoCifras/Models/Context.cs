@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace AlvoCifras.Models.DataEntity
+namespace AlvoCifras.Models
 {
     public class Context : DbContext
     {
@@ -12,6 +12,8 @@ namespace AlvoCifras.Models.DataEntity
         {
         }
 
+        public DbSet<Artist> Artist { get; set; }
+        public DbSet<Songs> Songs { get; set; }
 
     }
 }
