@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using AlvoCifras.Models;
 using AlvoCifras.ViewModel;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
@@ -11,6 +12,12 @@ namespace AlvoCifras.Controllers
 {
     public class LoginController : Controller
     {
+        private Context _context;
+        public LoginController(Context context)
+        {
+            _context = context;
+        }
+
         public IActionResult Index()
         {
             return View();

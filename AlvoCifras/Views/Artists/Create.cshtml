@@ -1,0 +1,58 @@
+﻿@model AlvoCifras.Models.Artist
+
+@{
+    ViewData["Title"] = "Cadastrar";
+}
+
+
+<!doctype html>
+<html lang="en">
+@Html.Partial("_Head_Admin")
+
+<body>
+    @Html.Partial("_Header_Admin")
+
+    <div class="container-fluid">
+        <div class="row">
+            @Html.Partial("_Nav_Admin")
+
+            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2">Cadastrar Artista</h1>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <form asp-action="Create">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <div class="form-group">
+                                <label asp-for="Name" class="control-label"></label>
+                                <input asp-for="Name" class="form-control" />
+                                <span asp-validation-for="Name" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <a asp-action="Index" class="btn btn-default">Voltar</a>
+                                <input type="submit" value="Cadastrar" class="btn btn-default" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    @Html.Partial("_Scripts")
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+    <!-- Icons -->
+    <script>
+        feather.replace()
+    </script>
+</body>
+</html>
+
+

@@ -1,0 +1,62 @@
+﻿@model AlvoCifras.Models.Artist
+
+@{
+    ViewData["Title"] = "Index";
+}
+<!doctype html>
+<html lang="en">
+@Html.Partial("_Head_Admin")
+
+<body>
+    @Html.Partial("_Header_Admin")
+
+    <div class="container-fluid">
+        <div class="row">
+            @Html.Partial("_Nav_Admin")
+
+            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2">Artistas</h1>
+                </div>
+
+                <h3>Você tem certeza que vai deletar?</h3>
+                <div>
+                    <hr />
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Name)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Name)
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.CreatedAt)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.CreatedAt)
+                        </dd>
+                    </dl>
+
+                    <form asp-action="Delete">
+                        <input type="hidden" asp-for="Id" />
+                        <a class="btn btn-default" asp-action="Index">Voltar</a>
+                        <input type="submit" value="Delete" class="btn btn-default" />
+                    </form>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    @Html.Partial("_Scripts")
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+    <!-- Icons -->
+    <script>
+        feather.replace()
+    </script>
+</body>
+</html>

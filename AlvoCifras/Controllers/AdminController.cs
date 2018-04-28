@@ -12,7 +12,7 @@ namespace AlvoCifras.Controllers
     {
         public IActionResult Index()
         {
-            return View("Songs");
+            return View();
         }
     }
 }
