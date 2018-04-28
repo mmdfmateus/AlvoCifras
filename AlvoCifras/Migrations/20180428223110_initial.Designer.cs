@@ -11,7 +11,7 @@ using System;
 namespace AlvoCifras.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20180425171939_initial")]
+    [Migration("20180428223110_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -44,10 +44,10 @@ namespace AlvoCifras.Migrations
 
                     b.Property<DateTime>("CreatedAt");
 
-                    b.Property<string>("Name")
+                    b.Property<string>("LyricsSong")
                         .IsRequired();
 
-                    b.Property<string>("Tabs")
+                    b.Property<string>("Name")
                         .IsRequired();
 
                     b.Property<string>("Url")
@@ -90,7 +90,7 @@ namespace AlvoCifras.Migrations
                     b.HasOne("AlvoCifras.Models.Artist", "Artist")
                         .WithMany("Lyrics")
                         .HasForeignKey("ArtistId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 
             modelBuilder.Entity("AlvoCifras.Models.Songs", b =>
@@ -98,7 +98,7 @@ namespace AlvoCifras.Migrations
                     b.HasOne("AlvoCifras.Models.Artist", "Artist")
                         .WithMany("Songs")
                         .HasForeignKey("ArtistId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 #pragma warning restore 612, 618
         }

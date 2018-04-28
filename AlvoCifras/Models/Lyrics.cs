@@ -14,9 +14,9 @@ namespace AlvoCifras.Models
         [Required]
         public string Name { get; set; }
 
-        [DisplayName("Cifra")]
+        [DisplayName("Letra")]
         [Required]
-        public string Tabs { get; set; }
+        public string LyricsSong { get; set; }
 
         [Required]
         [ForeignKey("Artist")]

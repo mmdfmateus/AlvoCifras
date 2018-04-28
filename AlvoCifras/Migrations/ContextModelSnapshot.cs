@@ -43,10 +43,10 @@ namespace AlvoCifras.Migrations
 
                     b.Property<DateTime>("CreatedAt");
 
-                    b.Property<string>("Name")
+                    b.Property<string>("LyricsSong")
                         .IsRequired();
 
-                    b.Property<string>("Tabs")
+                    b.Property<string>("Name")
                         .IsRequired();
 
                     b.Property<string>("Url")
@@ -89,7 +89,7 @@ namespace AlvoCifras.Migrations
                     b.HasOne("AlvoCifras.Models.Artist", "Artist")
                         .WithMany("Lyrics")
                         .HasForeignKey("ArtistId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 
             modelBuilder.Entity("AlvoCifras.Models.Songs", b =>
@@ -97,7 +97,7 @@ namespace AlvoCifras.Migrations
                     b.HasOne("AlvoCifras.Models.Artist", "Artist")
                         .WithMany("Songs")
                         .HasForeignKey("ArtistId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 #pragma warning restore 612, 618
         }

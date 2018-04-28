@@ -1,0 +1,95 @@
+﻿@model AlvoCifras.Models.Lyrics
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<!doctype html>
+<html lang="en">
+@Html.Partial("_Head_Admin")
+
+<body>
+    @Html.Partial("_Header_Admin")
+
+    <div class="container-fluid">
+        <div class="row">
+            @Html.Partial("_Nav_Admin")
+
+            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2">Cadastrar Letra</h1>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <form asp-action="Create">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <div class="form-group">
+                                <label asp-for="Name" class="control-label"></label>
+                                <input asp-for="Name" class="form-control" />
+                                <span asp-validation-for="Name" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="ArtistId" class="control-label"></label>
+                                <select asp-for="ArtistId" class="form-control" asp-items="ViewBag.ArtistId"></select>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Url" class="control-label"></label>
+                                <input asp-for="Url" class="form-control" />
+                                <span asp-validation-for="Url" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="LyricsSong" class="control-label"></label>
+                                <input asp-for="LyricsSong" class="form-control" hidden />
+                                <div id="summernote"></div>
+                                <span asp-validation-for="LyricsSong" class="text-danger"></span>
+                            </div>
+
+
+                            <div class="form-group">
+                                <a asp-action="Index" class="btn btn-default">Voltar</a>
+                                <input type="submit" value="Cadastrar" class="btn btn-default" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    @Html.Partial("_Scripts")
+
+    <!-- Icons -->
+    <script>
+        feather.replace()
+    </script>
+    <script>
+        $('#summernote').summernote({
+            placeholder: 'Lembre-se de formatar da forma correta - Fonte: Arial, Tamanho: Normal, Cifra com a cor Laranja e Negrito!',
+            tabsize: 4,
+            height: 100
+        });
+
+        $(function () {
+
+            var summernote0 = $("div.note-editable.card-block")[0];
+
+            $(summernote0).on('keyup', function () {
+                var Cifra = $("div.note-editable.card-block")[0].innerHTML;
+
+                $("#Tabs").val(Cifra)
+            });
+
+        }
+        );
+    </script>
+
+</body>
+</html>
+

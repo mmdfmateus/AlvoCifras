@@ -31,8 +31,8 @@ namespace AlvoCifras.Migrations
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     ArtistId = table.Column<int>(nullable: false),
                     CreatedAt = table.Column<DateTime>(nullable: false),
+                    LyricsSong = table.Column<string>(nullable: false),
                     Name = table.Column<string>(nullable: false),
-                    Tabs = table.Column<string>(nullable: false),
                     Url = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
@@ -43,7 +43,7 @@ namespace AlvoCifras.Migrations
                         column: x => x.ArtistId,
                         principalTable: "Artist",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -66,7 +66,7 @@ namespace AlvoCifras.Migrations
                         column: x => x.ArtistId,
                         principalTable: "Artist",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(

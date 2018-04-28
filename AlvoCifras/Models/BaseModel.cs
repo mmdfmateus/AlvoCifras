@@ -12,6 +12,8 @@ namespace AlvoCifras.Models
         [Required]
         public int Id { get; set; }
 
+        //TODO: Inserir lógica de criar e pegar o DateTime.Now
+
         [DisplayName("Criado em")]
         [Required]
         public DateTime CreatedAt { get; set; }

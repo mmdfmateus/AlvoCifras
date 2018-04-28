@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AlvoCifras.Models;
 
 namespace AlvoCifras.Models
 {
@@ -39,5 +40,7 @@ namespace AlvoCifras.Models
                 }
             }
         }
+
+        public DbSet<AlvoCifras.Models.Lyrics> Lyrics { get; set; }
     }
 }
