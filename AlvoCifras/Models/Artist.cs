@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace AlvoCifras.Models
 {
+    [DisplayName("Artista")]
     public class Artist : BaseModel
     {
         public Artist()
