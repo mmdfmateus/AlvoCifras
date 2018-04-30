@@ -15,8 +15,19 @@
 
 
     <div class="container">
-        <div class="row">
+        <div class="row" style="margin-top: 25px;">
+            <div class="col-md-12">
+                <h4 style="color: #606060; position: relative;">@Html.DisplayFor(x => x.Name)</h4>
+            </div>
+            <div class="col-md-12">
+                <h5 style="color: #1241b2">@ViewBag.Artist</h5>
+            </div>
+            
+            
+            <div class="col-md-10" style="margin-top: 25px;">
                 @Html.Raw(ViewBag.Tabs)
+            </div>    
+            
         </div>
     </div>
 

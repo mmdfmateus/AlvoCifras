@@ -64,7 +64,7 @@ namespace AlvoCifras.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ArtistId"] = new SelectList(_context.Artist, "Id", "Id", songs.ArtistId);
+            ViewData["ArtistId"] = new SelectList(_context.Artist, "Id", "Name", songs.ArtistId);
             return View(songs);
         }
 
@@ -81,7 +81,7 @@ namespace AlvoCifras.Controllers
             {
                 return NotFound();
             }
-            ViewData["ArtistId"] = new SelectList(_context.Artist, "Id", "Id", songs.ArtistId);
+            ViewData["ArtistId"] = new SelectList(_context.Artist, "Id", "Name", songs.ArtistId);
             return View(songs);
         }
 
@@ -162,7 +162,10 @@ namespace AlvoCifras.Controllers
             //TODO: Validação
 
             Songs songs = await GetByUrl(id);
+            Artist artist = _context.Artist.Where(x => x.Id == songs.ArtistId).FirstOrDefault();
+
             ViewBag.Tabs = songs.Tabs;
+            ViewBag.Artist = artist.Name;
 
 
             return View(songs);

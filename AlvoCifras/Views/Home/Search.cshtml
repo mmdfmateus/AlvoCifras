@@ -1,0 +1,42 @@
+﻿@model List<Songs>
+
+
+@{
+    ViewData["Title"] = "Search";
+}
+
+
+
+<head>
+    @Html.Partial("_Head")
+</head>
+<body>
+    @Html.Partial("_Menu")
+
+    @if (Model.Count() > 0)
+    {
+        <h1 class="text-center">Resultado da Pesquisa - "@ViewBag.Keyword"</h1>
+    }
+    <h1 class="text-center"></h1>
+    <div class="container">
+        <div class="row">
+            @if (Model.Count() > 0)
+            {
+                <ul>
+                    @foreach (var item in Model)
+                    {
+                        <li>
+                            <a href="/Songs/Url/@item.Url">@item.Name</a>
+                        </li>
+                    }
+                </ul>
+            }
+            else { 
+                <h1 class="text-center">Nenhum resultado encontrado</h1>
+            }
+
+        </div>
+    </div>
+    @Html.Partial("_Scripts")
+
+</body>

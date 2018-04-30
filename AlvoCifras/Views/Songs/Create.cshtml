@@ -73,8 +73,18 @@
     <script>
         $('#summernote').summernote({
             placeholder: 'Lembre-se de formatar da forma correta - Fonte: Arial, Tamanho: Normal, Cifra com a cor Laranja e Negrito!',
-            tabsize: 4,
-            height: 100
+            tabsize: 0,
+            height: 100,
+            toolbar: [
+                ['style', ['bold']],
+                ['font', ['fontsize', 'color']],
+                ['paragraph', ['paragraph']],
+                ['misc', ['codeview']]
+            ],
+            minHeight: 100,
+            maxHeight: null,
+            focus: true,
+            lang: 'pt-BR'
         });
 
         $(function () {     

@@ -47,7 +47,7 @@
 
                             <div class="form-group" style="margin-top: 10px">
                                 <a asp-action="Index" class="btn btn-default">Voltar</a>
-                                <input type="submit" value="Cadastrar" class="btn btn-default" />
+                                <input type="submit" value="Salvar" class="btn btn-default" />
                             </div>
                         </form>
                     </div>
@@ -72,13 +72,11 @@
     <script>
         $('#summernote').summernote({
             placeholder: '',
-            tabsize: 4,
+            tabsize: 0,
             height: 100
         });
 
         $(function () {
-
-
 
             var summernote0 = $("div.note-editable.card-block")[0];
 
