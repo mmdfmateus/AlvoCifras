@@ -1,0 +1,30 @@
+﻿@model List<Lyrics>
+
+
+@{
+    ViewData["Title"] = "AllLyrics";
+}
+
+
+
+<head>
+    @Html.Partial("_Head")
+</head>
+<body>
+    @Html.Partial("_Menu")
+    <h1 class="text-center">Todas as Letras</h1>
+    <div class="container">
+        <div class="row">
+            <ul>
+                @foreach (var item in Model)
+                {
+                    <li>
+                        <a href="/Lyrics/Url/@item.Url">@item.Name</a>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+    @Html.Partial("_Scripts")
+
+</body>

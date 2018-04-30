@@ -10,6 +10,14 @@ namespace AlvoCifras.Controllers
 {
     public class HomeController : Controller
     {
+
+        private readonly Context _context;
+
+        public HomeController(Context context)
+        {
+            _context = context;
+        }
+
         public IActionResult Index()
         {
             return View();
@@ -33,5 +41,20 @@ namespace AlvoCifras.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        public IActionResult AllSongs()
+        {
+            List<Songs> songs = _context.Songs.ToList();
+
+            return View(songs);
+        }
+
+        public IActionResult AllLyrics()
+        {
+            List<Lyrics> lyrics = _context.Lyrics.ToList();
+
+            return View(lyrics);
+        }
+
     }
 }

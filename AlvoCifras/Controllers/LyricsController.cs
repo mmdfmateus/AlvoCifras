@@ -155,5 +155,26 @@ namespace AlvoCifras.Controllers
         {
             return _context.Lyrics.Any(e => e.Id == id);
         }
+
+        public async Task<IActionResult> Url(string id)
+        {
+            //TODO: Validação
+
+            Lyrics lyrics = await GetByUrl(id);
+            ViewBag.Lyrics = lyrics.LyricsSong;
+
+
+            return View(lyrics);
+        }
+
+        public async Task<Lyrics> GetByUrl(string url)
+        {
+            //TODO: Validação
+
+            var lyrics = await _context.Lyrics.SingleOrDefaultAsync(m => m.Url == url);
+
+            return lyrics;
+        }
+
     }
 }

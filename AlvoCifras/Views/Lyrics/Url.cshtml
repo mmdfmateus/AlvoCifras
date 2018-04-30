@@ -1,0 +1,27 @@
+﻿@model AlvoCifras.Models.Lyrics
+
+@{
+    ViewData["Title"] = "Url";
+}
+
+<!DOCTYPE html>
+
+<head>
+    @Html.Partial("_Head")
+</head>
+<body>
+    @Html.Partial("_Menu")
+
+
+
+    <div class="container">
+        <div class="row">
+                @Html.Raw(ViewBag.Lyrics)
+        </div>
+    </div>
+
+
+    @Html.Partial("_Scripts")
+
+</body>
+
