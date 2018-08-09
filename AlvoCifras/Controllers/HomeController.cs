@@ -59,22 +59,15 @@ namespace AlvoCifras.Controllers
         public IActionResult Search(string keyword)
         {
             ViewBag.Keyword = keyword;
-            List<Songs> songs = _context.Songs.ToList();
-            List<Songs> list = songs;
+            List<Songs> list = _context.Songs.ToList();
 
             if (keyword == null || keyword == "" || keyword == "+")
             {
-                list = songs;
+                return View("Search", list);
             }
             else
             {
-                list = songs.Where(x => x.Name.ToLower().Contains(keyword.ToLower()) || x.Artist.Name.ToLower().Contains(keyword.ToLower())).ToList();
-
-                if (list.Count() == 0)
-                {
-                    list = null;
-                }
-
+                list = _context.Songs.Where(x => x.Name.ToLower().Contains(keyword.ToLower()) || x.Artist.Name.ToLower().Contains(keyword.ToLower())).ToList();
             }
 
             return View("Search", list);

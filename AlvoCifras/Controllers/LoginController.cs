@@ -41,7 +41,7 @@ namespace AlvoCifras.Controllers
 
                     HttpContext.SignInAsync(principal);
 
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "Admin");
 
                 }
             }

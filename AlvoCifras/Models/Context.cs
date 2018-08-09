@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AlvoCifras.Models;
+using System.Threading;
 
 namespace AlvoCifras.Models
 {
@@ -15,6 +16,7 @@ namespace AlvoCifras.Models
 
         public DbSet<Artist> Artist { get; set; }
         public DbSet<Songs> Songs { get; set; }
+        public DbSet<Lyrics> Lyrics { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -24,6 +26,12 @@ namespace AlvoCifras.Models
                 relationship.DeleteBehavior = DeleteBehavior.Restrict;
             }
             base.OnModelCreating(modelBuilder);
+        }
+
+        public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken))
+        {
+            SetProperties();
+            return base.SaveChangesAsync(cancellationToken);
         }
 
         private void SetProperties()
@@ -39,8 +47,6 @@ namespace AlvoCifras.Models
                     auditableEntity.Property(p => p.CreatedAt).IsModified = false;
                 }
             }
-        }
-
-        public DbSet<AlvoCifras.Models.Lyrics> Lyrics { get; set; }
+        }        
     }
 }
